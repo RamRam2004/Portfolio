@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ramkumar | Aspiring Software Engineer | Java Developer</title>
+<meta name="description" content="Ramkumar - BCA graduate from Madurai Kamaraj University, aspiring Software Engineer and Java Developer. View projects, LeetCode achievements and contact details." />
+<meta name="theme-color" content="#050816" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #050816;
+    --bg-2: #0a0f2c;
+    --card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.09);
+    --text: #e6e9f5;
+    --muted: #9aa3c7;
+    --blue: #2f81ff;
+    --purple: #8b5cf6;
+    --cyan: #22d3ee;
+    --grad: linear-gradient(135deg, #2f81ff 0%, #8b5cf6 55%, #22d3ee 100%);
+    --radius: 18px;
+    --nav-h: 72px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+  .container { width: min(1140px, 92%); margin: 0 auto; }
+  section { padding: 110px 0; position: relative; }
+  .glow-bg {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(900px 500px at 10% -10%, rgba(47,129,255,.18), transparent 60%),
+      radial-gradient(800px 500px at 95% 10%, rgba(139,92,246,.16), transparent 60%),
+      radial-gradient(700px 600px at 50% 110%, rgba(34,211,238,.10), transparent 60%);
+  }
+  .gradient-text {
+    background: var(--grad); -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: .85rem; color: var(--cyan);
+    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; display: block;
+  }
+  .section-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
+  .section-sub { color: var(--muted); max-width: 640px; margin-bottom: 50px; }
+
+  .glass {
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-radius: var(--radius);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px;
+    border-radius: 999px; font-weight: 600; font-size: .98rem; border: 1px solid transparent;
+    cursor: pointer; transition: transform .25s, box-shadow .25s, background .25s, border-color .25s;
+    font-family: inherit; background: none; color: var(--text);
+  }
+  .btn:hover { transform: translateY(-3px); }
+  .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 10px 30px -10px rgba(139,92,246,.7); }
+  .btn-primary:hover { box-shadow: 0 16px 40px -10px rgba(47,129,255,.8); }
+  .btn-ghost { border-color: var(--border); background: rgba(255,255,255,.03); }
+  .btn-ghost:hover { border-color: var(--cyan); background: rgba(34,211,238,.08); }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .btn[disabled] { opacity: .6; cursor: not-allowed; transform: none; }
+
+  /* Navbar */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); z-index: 100;
+    transition: background .3s, border-color .3s;
+    border-bottom: 1px solid transparent;
+  }
+  .navbar.scrolled {
+    background: rgba(5,8,22,.75); border-bottom-color: var(--border);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+  .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: -.02em; }
+  .logo span { color: var(--cyan); }
+  .nav-links { display: flex; gap: 6px; list-style: none; }
+  .nav-links a {
+    display: block; padding: 8px 14px; border-radius: 999px; font-size: .92rem; color: var(--muted);
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+  .nav-links a.active { color: #fff; background: linear-gradient(135deg, rgba(47,129,255,.25), rgba(139,92,246,.25)); }
+  .menu-toggle {
+    display: none; background: none; border: 1px solid var(--border); color: var(--text);
+    width: 44px; height: 44px; border-radius: 12px; cursor: pointer; align-items: center; justify-content: center;
+  }
+  .menu-toggle svg { width: 22px; height: 22px; }
+
+  /* Hero */
+  .hero { min-height: 100vh; display: flex; align-items: center; padding-top: calc(var(--nav-h) + 40px); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px;
+    font-size: .85rem; color: var(--muted); margin-bottom: 22px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 12px #22c55e; }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 800; line-height: 1.08; letter-spacing: -.03em; }
+  .hero .role {
+    margin-top: 18px; font-size: clamp(1.02rem, 2vw, 1.25rem); font-weight: 600; color: #cfd6f2;
+  }
+  .hero .desc { margin-top: 18px; color: var(--muted); max-width: 560px; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .social { display: flex; gap: 12px; margin-top: 30px; }
+  .social a {
+    width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+    border: 1px solid var(--border); background: rgba(255,255,255,.03);
+    transition: transform .25s, border-color .25s, color .25s;
+  }
+  .social a:hover { transform: translateY(-3px); border-color: var(--cyan); color: var(--cyan); }
+  .social svg { width: 20px; height: 20px; }
+  .lc-icon { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: .8rem; }
+
+  /* Code window visual */
+  .code-window { padding: 0; overflow: hidden; box-shadow: 0 30px 80px -20px rgba(47,129,255,.35); animation: float 6s ease-in-out infinite; }
+  .code-bar { display: flex; gap: 7px; padding: 14px 16px; border-bottom: 1px solid var(--border); align-items: center; }
+  .code-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .code-bar span { margin-left: 10px; font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--muted); }
+  .code-body {
+    padding: 22px 24px; font-family: 'JetBrains Mono', monospace; font-size: .86rem; line-height: 1.8;
+    color: #cbd5ff; white-space: pre; min-height: 300px; overflow-x: auto;
+  }
+  .k { color: #c084fc; } .f { color: #60a5fa; } .s { color: #67e8f9; } .c { color: #6b7399; } .n { color: #fbbf24; }
+  .caret { display: inline-block; width: 8px; height: 1em; background: var(--cyan); vertical-align: -2px; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: start; }
+  .about-text p { color: var(--muted); margin-bottom: 18px; font-size: 1.03rem; }
+  .highlights { display: grid; gap: 14px; }
+  .highlight { padding: 20px 22px; display: flex; gap: 16px; align-items: center; transition: transform .25s, border-color .25s; }
+  .highlight:hover { transform: translateX(6px); border-color: rgba(139,92,246,.6); }
+  .hl-icon {
+    width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0;
+    background: var(--grad); color: #fff; font-weight: 700;
+  }
+  .hl-icon svg { width: 22px; height: 22px; }
+  .highlight strong { display: block; font-size: 1.02rem; }
+  .highlight small { color: var(--muted); }
+
+  /* Skills */
+  .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+  .skill-card { padding: 28px; transition: transform .3s, border-color .3s, box-shadow .3s; }
+  .skill-card:hover { transform: translateY(-6px); border-color: rgba(34,211,238,.5); box-shadow: 0 20px 40px -20px rgba(34,211,238,.4); }
+  .skill-card h3 { font-size: 1.08rem; margin-bottom: 16px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+  .tag {
+    padding: 6px 13px; border-radius: 999px; font-size: .86rem; font-weight: 500;
+    background: rgba(47,129,255,.1); border: 1px solid rgba(47,129,255,.3); color: #cfe0ff;
+    transition: background .2s, transform .2s;
+  }
+  .tag:hover { background: rgba(139,92,246,.22); transform: translateY(-2px); }
+
+  /* Projects */
+  .project-card { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; transition: transform .3s, box-shadow .3s; }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -25px rgba(139,92,246,.45); }
+  .project-preview {
+    background: linear-gradient(135deg, #0f1a3d, #1b1040);
+    min-height: 300px; padding: 22px; display: flex; flex-direction: column; gap: 12px;
+  }
+  .shop-nav { display: flex; justify-content: space-between; align-items: center; font-size: .75rem; color: #aab4e0; }
+  .shop-nav b { color: #fff; font-size: .9rem; }
+  .shop-hero {
+    flex: 1; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;
+    background: var(--grad); color: #fff;
+  }
+  .shop-hero h4 { font-size: 1.2rem; }
+  .shop-hero span { font-size: .8rem; opacity: .9; }
+  .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .shop-grid div { height: 52px; border-radius: 10px; background: rgba(255,255,255,.08); border: 1px solid var(--border); }
+  .project-body { padding: 34px; display: flex; flex-direction: column; }
+  .project-body h3 { font-size: 1.6rem; margin-bottom: 6px; }
+  .project-body .type { font-size: .85rem; color: var(--cyan); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; }
+  .project-body p { color: var(--muted); margin-bottom: 18px; }
+  .feature-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-bottom: 22px; }
+  .feature-list li { color: #cfd6f2; font-size: .92rem; }
+  .feature-list li::before { content: "✓ "; color: var(--cyan); font-weight: 700; }
+  .project-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
+  .project-links .btn { padding: 11px 20px; font-size: .9rem; }
+  .project-links .btn[hidden] { display: none; }
+  .placeholder-note { font-size: .85rem; color: #f5b971; margin-top: auto; padding-top: 8px; }
+  .more-projects { margin-top: 26px; padding: 26px; border-style: dashed; text-align: center; color: var(--muted); }
+  .more-projects strong { color: var(--text); }
+
+  /* LeetCode */
+  .lc-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 22px; }
+  .stat { padding: 24px; text-align: center; transition: transform .25s, border-color .25s; }
+  .stat:hover { transform: translateY(-5px); border-color: rgba(47,129,255,.6); }
+  .stat .val { font-size: 2.1rem; font-weight: 800; }
+  .stat .lbl { color: var(--muted); font-size: .88rem; margin-top: 4px; }
+  .lc-main { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; }
+  .lc-panel { padding: 30px; }
+  .lc-panel h3 { font-size: 1.15rem; margin-bottom: 20px; }
+  .diff { margin-bottom: 18px; }
+  .diff-head { display: flex; justify-content: space-between; font-size: .92rem; margin-bottom: 8px; }
+  .diff-head span:last-child { color: var(--muted); }
+  .bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; border-radius: 999px; transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+  .bar.easy i { background: linear-gradient(90deg,#22c55e,#86efac); }
+  .bar.med i { background: linear-gradient(90deg,#f59e0b,#fcd34d); }
+  .bar.hard i { background: linear-gradient(90deg,#ef4444,#f87171); }
+  .lang-pill {
+    display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 14px;
+    background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.35); margin-top: 6px; font-weight: 600;
+  }
+  .snapshot-note { margin-top: 22px; font-size: .85rem; color: var(--muted); }
+  .snapshot-note strong { color: #f5b971; }
+  .lc-panel .btn { margin-top: 22px; }
+
+  /* GitHub */
+  .gh-card { display: flex; flex-wrap: wrap; gap: 26px; align-items: center; justify-content: space-between; padding: 34px; }
+  .gh-info { display: flex; gap: 20px; align-items: center; }
+  .gh-avatar {
+    width: 74px; height: 74px; border-radius: 20px; display: grid; place-items: center;
+    background: var(--grad); font-size: 1.6rem; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .gh-info h3 { font-size: 1.3rem; }
+  .gh-info p { color: var(--muted); font-size: .95rem; }
+
+  /* Education */
+  .timeline { position: relative; max-width: 760px; padding-left: 34px; }
+  .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--grad); border-radius: 2px; }
+  .tl-item { position: relative; padding: 28px 30px; margin-bottom: 24px; transition: transform .25s, border-color .25s; }
+  .tl-item:hover { transform: translateX(6px); border-color: rgba(34,211,238,.5); }
+  .tl-item::before {
+    content: ""; position: absolute; left: -33px; top: 34px; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--cyan); box-shadow: 0 0 14px var(--cyan);
+  }
+  .tl-item h3 { font-size: 1.25rem; }
+  .tl-item .uni { color: var(--muted); margin-top: 4px; }
+  .edu-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+  .edu-meta span { padding: 8px 14px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px dashed var(--border); font-size: .9rem; color: var(--muted); }
+  .edu-meta b { color: var(--text); }
+
+  /* Career objective */
+  .objective { max-width: 860px; margin: 0 auto; padding: 46px; text-align: center; position: relative; overflow: hidden; }
+  .objective::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; background: var(--grad); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  .objective p { font-size: 1.18rem; color: #dfe5ff; }
+  .objective .tagline { margin-top: 20px; color: var(--cyan); font-weight: 600; font-size: .95rem; }
+
+  /* Certifications */
+  .cert-empty { padding: 44px; text-align: center; border-style: dashed; color: var(--muted); }
+  .cert-empty h3 { color: var(--text); margin-bottom: 8px; font-size: 1.15rem; }
+  .cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 18px; }
+  .cert-item { padding: 24px; }
+  .cert-item h4 { margin-bottom: 4px; }
+  .cert-item p { color: var(--muted); font-size: .92rem; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
+  .info-list { display: grid; gap: 14px; }
+  .info-item { display: flex; gap: 16px; align-items: center; padding: 18px 20px; transition: border-color .25s, transform .25s; }
+  .info-item:hover { border-color: rgba(47,129,255,.6); transform: translateX(5px); }
+  .info-item .hl-icon { width: 42px; height: 42px; }
+  .info-item small { display: block; color: var(--muted); font-size: .8rem; }
+  .info-item a, .info-item span { font-weight: 600; word-break: break-all; }
+  .info-item a:hover { color: var(--cyan); }
+  form { padding: 34px; display: grid; gap: 18px; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field label { font-size: .9rem; color: #cfd6f2; font-weight: 500; }
+  .field input, .field textarea {
+    font: inherit; color: var(--text); background: rgba(5,8,22,.6); border: 1px solid var(--border);
+    border-radius: 12px; padding: 13px 16px; transition: border-color .2s, box-shadow .2s; width: 100%;
+  }
+  .field textarea { min-height: 140px; resize: vertical; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(139,92,246,.2); }
+  .field.invalid input, .field.invalid textarea { border-color: #f87171; }
+  .err { color: #f87171; font-size: .82rem; min-height: 1em; }
+  .form-status { font-size: .92rem; min-height: 1.4em; color: var(--muted); }
+  .form-status.ok { color: #86efac; }
+  .form-status.bad { color: #f87171; }
+  .form-note { font-size: .82rem; color: var(--muted); }
+
+  /* Footer */
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
+  .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
+  .footer-inner p { color: var(--muted); font-size: .93rem; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: var(--muted); font-size: .93rem; transition: color .2s; }
+  .footer-links a:hover { color: var(--cyan); }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .hero-grid, .about-grid, .contact-grid, .lc-main { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 1fr; }
+    .lc-top { grid-template-columns: repeat(2, 1fr); }
+    .code-window { max-width: 620px; }
+  }
+  @media (max-width: 760px) {
+    section { padding: 80px 0; }
+    .menu-toggle { display: inline-flex; }
+    .nav-links {
+      position: fixed; top: var(--nav-h); left: 0; right: 0; flex-direction: column; gap: 4px;
+      background: rgba(5,8,22,.97); padding: 16px 4%; border-bottom: 1px solid var(--border);
+      transform: translateY(-120%); opacity: 0; transition: transform .35s, opacity .35s; pointer-events: none;
+    }
+    .nav-links.open { transform: none; opacity: 1; pointer-events: auto; }
+    .nav-links a { padding: 13px 16px; }
+    .feature-list { grid-template-columns: 1fr; }
+    .project-body { padding: 24px; }
+    .gh-card, .objective { padding: 26px; }
+    .lc-top { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat .val { font-size: 1.7rem; }
+    .code-body { font-size: .76rem; padding: 16px; }
+    .timeline { padding-left: 26px; }
+    .tl-item::before { left: -25px; }
+    .timeline::before { left: 6px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="glow-bg" aria-hidden="true"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">Ramkumar</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path id="menuIcon" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#leetcode">LeetCode</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="badge glass"><span class="dot"></span> Open to entry-level opportunities</div>
+      <h1>Hi, I'm <span class="gradient-text">Ramkumar</span></h1>
+      <p class="role">Aspiring Software Engineer | Java Developer | Problem Solver</p>
+      <p class="desc">I'm a BCA graduate from Madurai Kamaraj University and an aspiring Software Engineer passionate about programming, problem-solving, data structures, and software development. I continuously improve my technical skills by learning new technologies and solving coding challenges.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+          Download Resume
+        </a>
+        <a class="btn btn-ghost" href="#projects">View My Projects</a>
+        <a class="btn btn-ghost" href="#contact">Contact Me</a>
+      </div>
+      <div class="social">
+        <a href="https://github.com/RamRam2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        </a>
+        <a href="https://leetcode.com/u/Ramjvr12/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile">
+          <span class="lc-icon">LC</span>
+        </a>
+        <a href="mailto:ram39930@gmail.com" aria-label="Email Ramkumar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal code-window glass" aria-hidden="true">
+      <div class="code-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>ramkumar.java</span></div>
+      <pre class="code-body" id="typed"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="reveal about-text">
+      <span class="eyebrow">01 · About</span>
+      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      <p>I'm an aspiring Software Engineer and a fresher with an interest in Java development, data structures, algorithms, and web technologies. I enjoy solving programming problems and building practical projects.</p>
+      <p>My goal is to start my career in software development, improve my technical knowledge, and contribute to real-world applications.</p>
+    </div>
+    <div class="highlights">
+      <div class="glass highlight reveal">
+        <div class="hl-icon">🎓</div>
+        <div><strong>BCA – Madurai Kamaraj University</strong><small>Bachelor of Computer Applications</small></div>
+      </div>
+      <div class="glass highlight reveal">
+        <div class="hl-icon">✔</div>
+        <div><strong>268 LeetCode Problems Solved</strong><small>Manually supplied snapshot</small></div>
+      </div>
+      <div class="glass highlight reveal">
+        <div class="hl-icon">☕</div>
+        <div><strong>Primary Language: Java</strong><small>Object-oriented, clean code focus</small></div>
+      </div>
+      <div class="glass highlight reveal">
+        <div class="hl-icon">🚀</div>
+        <div><strong>Open to Entry-Level Opportunities</strong><small>Software Engineering roles</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">02 · Skills</span>
+      <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+      <p class="section-sub">Technologies and concepts I can explain and apply in interviews.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="glass skill-card reveal"><h3>Programming Languages</h3>
+        <div class="tags"><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">JavaScript</span></div></div>
+      <div class="glass skill-card reveal"><h3>Frontend</h3>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React.js</span></div></div>
+      <div class="glass skill-card reveal"><h3>Backend</h3>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Node.js</span></div></div>
+      <div class="glass skill-card reveal"><h3>Database</h3>
+        <div class="tags"><span class="tag">SQL</span></div></div>
+      <div class="glass skill-card reveal"><h3>Core Computer Science</h3>
+        <div class="tags"><span class="tag">Data Structures &amp; Algorithms</span><span class="tag">OOP</span><span class="tag">DBMS</span><span class="tag">Computer Networks</span><span class="tag">Operating Systems</span></div></div>
+      <div class="glass skill-card reveal"><h3>Developer Tools</h3>
+        <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Visual Studio Code</span><span class="tag">IntelliJ IDEA</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">03 · Projects</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Project</span></h2>
+      <p class="section-sub">A selection of work I've built while learning and practicing software development.</p>
+    </div>
+
+    <article class="glass project-card reveal">
+      <div class="project-preview" aria-hidden="true">
+        <div class="shop-nav"><b>NightyStore</b><span>Home · Shop · Cart</span></div>
+        <div class="shop-hero"><h4>Comfortable Nighty Collection</h4><span>Browse • Compare • Buy</span></div>
+        <div class="shop-grid"><div></div><div></div><div></div></div>
+      </div>
+      <div class="project-body">
+        <div class="type">E-COMMERCE · WEB APPLICATION</div>
+        <h3>E-commerce Nighty Shopping Website</h3>
+        <p>A responsive e-commerce website designed for browsing and purchasing nighty products, with an attractive shopping interface and product-focused layout.</p>
+        <ul class="feature-list">
+          <li>Attractive homepage</li>
+          <li>Product listings</li>
+          <li>Product images and details</li>
+          <li>Search functionality</li>
+          <li>Category filtering</li>
+          <li>Shopping cart</li>
+          <li>Customer panel</li>
+          <li>Admin panel</li>
+          <li>Order management</li>
+          <li>Order tracking</li>
+        </ul>
+        <p class="placeholder-note">Technologies: [Add the technologies used in this project]</p>
+        <div class="project-links" id="projectLinks">
+          <a class="btn btn-primary" id="liveDemo" href="#" target="_blank" rel="noopener noreferrer" hidden>Live Demo</a>
+          <a class="btn btn-ghost" id="repoLink" href="#" target="_blank" rel="noopener noreferrer" hidden>GitHub Repository</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="glass more-projects reveal">
+      <strong>More projects coming soon.</strong> To add a project, copy a card in this section and update its details.
+    </div>
+  </div>
+</section>
+
+<!-- LEETCODE -->
+<section id="leetcode">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">04 · LeetCode</span>
+      <h2 class="section-title">LeetCode <span class="gradient-text">Achievements</span></h2>
+      <p class="section-sub">Manually supplied snapshot of my LeetCode profile. These numbers do not update automatically.</p>
+    </div>
+
+    <div class="lc-top">
+      <div class="glass stat reveal"><div class="val gradient-text">268</div><div class="lbl">Total Problems Solved</div></div>
+      <div class="glass stat reveal"><div class="val">610,375</div><div class="lbl">Global Rank</div></div>
+      <div class="glass stat reveal"><div class="val">23</div><div class="lbl">Active Days</div></div>
+      <div class="glass stat reveal"><div class="val">5 Days</div><div class="lbl">Maximum Streak</div></div>
+    </div>
+
+    <div class="lc-main">
+      <div class="glass lc-panel reveal">
+        <h3>Difficulty Breakdown</h3>
+        <div class="diff"><div class="diff-head"><span>Easy</span><span>193 solved</span></div><div class="bar easy"><i data-w="72"></i></div></div>
+        <div class="diff"><div class="diff-head"><span>Medium</span><span>72 solved</span></div><div class="bar med"><i data-w="27"></i></div></div>
+        <div class="diff"><div class="diff-head"><span>Hard</span><span>3 solved</span></div><div class="bar hard"><i data-w="2"></i></div></div>
+        <p class="snapshot-note"><strong>Snapshot note:</strong> Bar widths show each difficulty's share of total solved problems (193, 72 and 3 out of 268).</p>
+      </div>
+
+      <div class="glass lc-panel reveal">
+        <h3>Badges &amp; Language</h3>
+        <p style="color:var(--muted);margin-bottom:16px">Badges earned: <strong style="color:var(--text)">2</strong></p>
+        <div class="lang-pill">☕ Primary Language: Java</div>
+        <p style="color:var(--muted);margin-top:18px">Consistent problem-solving practice focused on data structures, algorithms and Java implementations.</p>
+        <p class="snapshot-note">Snapshot supplied manually by Ramkumar.</p>
+        <a class="btn btn-primary" href="https://leetcode.com/u/Ramjvr12/" target="_blank" rel="noopener noreferrer">View LeetCode Profile</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB -->
+<section id="github" style="padding-top:0">
+  <div class="container">
+    <div class="glass gh-card reveal">
+      <div class="gh-info">
+        <div class="gh-avatar">R</div>
+        <div>
+          <h3>GitHub</h3>
+          <p>Username: <strong style="color:var(--text)">RamRam2004</strong></p>
+          <p>Source code, experiments and projects.</p>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="https://github.com/RamRam2004" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">05 · Education</span>
+      <h2 class="section-title">Edu<span class="gradient-text">cation</span></h2>
+      <p class="section-sub">My academic background in computer applications.</p>
+    </div>
+    <div class="timeline">
+      <div class="glass tl-item reveal">
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+        <p class="uni">Madurai Kamaraj University · Tamil Nadu, India</p>
+        <div class="edu-meta">
+          <span>Graduation Year: <b>2025</b></span>
+          <span>Percentage: <b>75%</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:80px">
+      <span class="eyebrow">06 · Career Objective</span>
+      <h2 class="section-title">Career <span class="gradient-text">Objective</span></h2>
+    </div>
+    <div class="glass objective reveal">
+      <p>"My career objective is to begin my professional journey as a Software Engineer where I can apply my programming knowledge, problem-solving abilities, and technical skills to develop reliable software applications while continuously learning and growing."</p>
+      <p class="tagline">Fresher · Seeking entry-level Software Engineer opportunities</p>
+    </div>
+
+    <div class="reveal" style="margin-top:80px">
+      <span class="eyebrow">07 · Certifications</span>
+      <h2 class="section-title">Certi<span class="gradient-text">fications</span></h2>
+    </div>
+    <div class="glass cert-empty reveal" id="certBox">
+      <h3>No certifications added yet</h3>
+      <p>Add your verified certifications to the <code>certifications</code> array in the script at the bottom of this file. They will appear here automatically.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">08 · Contact</span>
+      <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+      <p class="section-sub">Open to entry-level Software Engineer and Java Developer opportunities. Send me a message or reach out directly.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="info-list reveal">
+        <div class="glass info-item"><div class="hl-icon">👤</div><div><small>Name</small><span>Ramkumar</span></div></div>
+        <div class="glass info-item"><div class="hl-icon">✉</div><div><small>Email</small><a href="mailto:ram39930@gmail.com">ram39930@gmail.com</a></div></div>
+        <div class="glass info-item"><div class="hl-icon">📞</div><div><small>Phone</small><a href="tel:+918903809236">8903809236</a></div></div>
+        <div class="glass info-item"><div class="hl-icon">⌥</div><div><small>GitHub</small><a href="https://github.com/RamRam2004" target="_blank" rel="noopener noreferrer">github.com/RamRam2004</a></div></div>
+        <div class="glass info-item"><div class="hl-icon">LC</div><div><small>LeetCode</small><a href="https://leetcode.com/u/Ramjvr12/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Ramjvr12</a></div></div>
+      </div>
+
+      <form class="glass reveal" id="contactForm" novalidate>
+        <div class="field" data-field="name">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+          <div class="err" role="alert"></div>
+        </div>
+        <div class="field" data-field="email">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+          <div class="err" role="alert"></div>
+        </div>
+        <div class="field" data-field="subject">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Job opportunity, collaboration, etc." />
+          <div class="err" role="alert"></div>
+        </div>
+        <div class="field" data-field="message">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..."></textarea>
+          <div class="err" role="alert"></div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="sendBtn" style="justify-content:center">Send Message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <p class="form-note">This form opens your email app with the message pre-filled. To send directly from the site, connect a form service such as Formspree or EmailJS (see the setup notes below).</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p>Designed and Developed by Ramkumar · © <span id="year"></span></p>
+    <div class="footer-links">
+      <a href="https://github.com/RamRam2004" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://leetcode.com/u/Ramjvr12/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+      <a href="mailto:ram39930@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* ---------- CONFIG: edit these ---------- */
+  // Add real URLs here. Leave empty to hide the button.
+  const PROJECT = {
+    liveUrl: "",   // e.g. "https://your-live-site.vercel.app"
+    repoUrl: ""    // e.g. "https://github.com/RamRam2004/your-repo"
+  };
+  // Add verified certifications here, e.g. { name: "...", provider: "...", date: "..." }
+  const certifications = [];
+  // Paste your Formspree form link here, e.g. "https://formspree.io/f/abcdwxyz"
+  const FORMSPREE_URL = "";
+  /* ---------------------------------------- */
+
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Project buttons
+  if (PROJECT.liveUrl) { const a = document.getElementById("liveDemo"); a.href = PROJECT.liveUrl; a.hidden = false; }
+  if (PROJECT.repoUrl) { const a = document.getElementById("repoLink"); a.href = PROJECT.repoUrl; a.hidden = false; }
+
+  // Certifications
+  if (certifications.length) {
+    const box = document.getElementById("certBox");
+    box.className = "cert-list";
+    box.style.border = "none"; box.style.background = "none"; box.style.backdropFilter = "none";
+    box.innerHTML = certifications.map(c =>
+      `<div class="glass cert-item"><h4>${escapeHtml(c.name)}</h4><p>${escapeHtml(c.provider || "")}${c.date ? " · " + escapeHtml(c.date) : ""}</p></div>`
+    ).join("");
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  }
+
+  // Navbar: scrolled state + active section highlight
+  const navbar = document.getElementById("navbar");
+  const navLinks = document.querySelectorAll(".nav-links a");
+  const onScroll = () => navbar.classList.toggle("scrolled", window.scrollY > 40);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const sectionIds = Array.from(navLinks).map(a => a.getAttribute("href").slice(1));
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+      }
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  sectionIds.forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+
+  // Mobile menu
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("navLinks");
+  const menuIcon = document.getElementById("menuIcon");
+  toggle.addEventListener("click", () => {
+    const open = menu.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+    menuIcon.setAttribute("d", open ? "M6 6l12 12M6 18L18 6" : "M4 7h16M4 12h16M4 17h16");
+  });
+  navLinks.forEach(a => a.addEventListener("click", () => {
+    menu.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    menuIcon.setAttribute("d", "M4 7h16M4 12h16M4 17h16");
+  }));
+
+  // Reveal on scroll
+  const reveal = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); reveal.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => reveal.observe(el));
+
+  // LeetCode bars animate when visible
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll("i[data-w]").forEach(i => i.style.width = i.dataset.w + "%");
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll(".lc-panel").forEach(p => barObs.observe(p));
+
+  // Typing code animation in hero
+  const code = [
+    [["k","public class "],["f","Ramkumar"],[null," {"]],
+    [[null,"    "],["k","public static void "],["f","main"],[null,"(String[] args) {"]],
+    [[null,"        "],["c","// Solving problems, one at a time"]],
+    [[null,"        "],[ "k","String"],[null," role = "],["s","\"Aspiring Software Engineer\""],[null,";"]],
+    [[null,"        "],["k","int"],[null," leetcodeSolved = "],["n","268"],[null,";"]],
+    [[null,"        "],["f","System.out.println"],[null,"("],["s","\"Let's build something great\""],[null,");"]],
+    [[null,"    }"]],
+    [[null,"}"]]
+  ];
+  const target = document.getElementById("typed");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const html = code.map(line => line.map(([cls, txt]) => cls ? `<span class="${cls}">${escapeHtml(txt)}</span>` : escapeHtml(txt)).join("")).join("\n");
+  if (reduce) {
+    target.innerHTML = html;
+  } else {
+    const flat = code.map(line => line.map(([cls, txt]) => ({ cls, txt })));
+    let li = 0, ci = 0, cur = "";
+    const step = () => {
+      if (li >= flat.length) { target.innerHTML = html + '<span class="caret"></span>'; return; }
+      const line = flat[li];
+      if (ci >= line.length) { cur += "\n"; li++; ci = 0; setTimeout(step, 180); return; }
+      const seg = line[ci];
+      const piece = seg.txt;
+      const chunk = piece.slice(0, 1);
+      // Build partial segment text
+      seg.partial = (seg.partial || "") + chunk;
+      seg.txt = piece.slice(1);
+      if (!seg.txt) { ci++; }
+      target.innerHTML = buildPartial() + '<span class="caret"></span>';
+      setTimeout(step, 28);
+    };
+    const buildPartial = () => {
+      // Recreate visible text from done portions
+      return flat.slice(0, li + 1).map((line, idx) => {
+        const lineEnd = idx < li ? line.length : ci + 1;
+        return line.slice(0, lineEnd).map(seg => {
+          const txt = seg.partial !== undefined ? seg.partial : "";
+          if (!txt) return "";
+          return seg.cls ? `<span class="${seg.cls}">${escapeHtml(txt)}</span>` : escapeHtml(txt);
+        }).join("");
+      }).join("\n");
+    };
+    // Restore original text on a clean run
+    flat.forEach(line => line.forEach(seg => { seg.orig = seg.txt; seg.partial = ""; }));
+    step();
+  }
+
+  // Contact form validation (no fake sending)
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  const rules = {
+    name: v => v.trim().length >= 2 || "Please enter your name (at least 2 characters).",
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || "Please enter a valid email address.",
+    subject: v => v.trim().length >= 3 || "Please enter a subject (at least 3 characters).",
+    message: v => v.trim().length >= 10 || "Please write a message (at least 10 characters)."
+  };
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    let valid = true;
+    const values = {};
+    Object.keys(rules).forEach(key => {
+      const field = form.querySelector(`[data-field="${key}"]`);
+      const input = field.querySelector("input, textarea");
+      const result = rules[key](input.value);
+      values[key] = input.value.trim();
+      if (result !== true) {
+        valid = false;
+        field.classList.add("invalid");
+        field.querySelector(".err").textContent = result;
+      } else {
+        field.classList.remove("invalid");
+        field.querySelector(".err").textContent = "";
+      }
+    });
+    if (!valid) {
+      status.className = "form-status bad";
+      status.textContent = "Please fix the highlighted fields.";
+      return;
+    }
+    if (FORMSPREE_URL) {
+      const btn = document.getElementById("sendBtn");
+      btn.disabled = true; btn.textContent = "Sending...";
+      status.className = "form-status"; status.textContent = "";
+      fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ name: values.name, email: values.email, subject: values.subject, message: values.message })
+      }).then(res => {
+        if (!res.ok) throw new Error("send failed");
+        status.className = "form-status ok";
+        status.textContent = "Thanks! Your message has been sent.";
+        alert("Thanks, " + values.name + "! Your message has been sent.");
+        form.reset();
+      }).catch(() => {
+        status.className = "form-status bad";
+        status.textContent = "Sorry, the message could not be sent. Please email ram39930@gmail.com directly.";
+      }).finally(() => { btn.disabled = false; btn.textContent = "Send Message"; });
+      return;
+    }
+    const body = `Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
+    const mailto = `mailto:ram39930@gmail.com?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(body)}`;
+    alert("Thanks, " + values.name + "! Your message is ready. Click the link on the page to send it from your email app.");
+    status.className = "form-status ok";
+    status.innerHTML = 'Your message is ready. <a href="' + mailto + '" style="color:var(--cyan);text-decoration:underline">Click here to open your email app and send it</a>.';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
